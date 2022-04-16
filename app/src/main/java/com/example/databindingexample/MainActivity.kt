@@ -14,6 +14,7 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater).apply {
             setContentView(root)
             this.viewmodel = viewModel
+            lifecycleOwner = this@MainActivity
 
             buyButton.setOnClickListener{
                 viewModel.buy()

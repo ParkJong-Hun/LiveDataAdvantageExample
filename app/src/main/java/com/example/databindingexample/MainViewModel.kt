@@ -12,18 +12,18 @@ class MainViewModel: ViewModel() {
         const val CURRENCY = "￦"
     }
 
-    private val _money: MutableLiveData<Int> = MutableLiveData(1000)
+    private val _money: MutableLiveData<Int> = MutableLiveData(3000)
     val money: LiveData<Int> = _money
-    val moneyForTextView = MutableLiveData("${DecimalFormat("###,###").format(_money.value)}$CURRENCY")
-    val isSmall = _money.map {
-        it <= 1000
+    val moneyForTextView = money.map {"${DecimalFormat("###,###").format(it)}$CURRENCY"}
+    val isPurchasable = money.map {
+        it >= 1000
     }
 
     fun charge() {
-        _money.postValue(_money.value?:0 + 2000)
+        _money.postValue(money.value!! + 2000)
     }
 
     fun buy() {
-        _money.postValue(_money.value?:0 - 1000)
+        _money.postValue(money.value!! - 1000)
     }
 }

@@ -3,4 +3,5 @@
     <string name="description">고객님의 현재 잔액은</string>
     <string name="description2">최소 잔액이 부족합니다.</string>
     <string name="charge">충전</string>
+    <string name="buy">구매</string>
 </resources>

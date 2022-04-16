@@ -40,35 +40,31 @@
             android:id="@+id/textView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:visibility="@{viewmodel.isSmall() ? View.VISIBLE : View.GONE}"
+            android:visibility="@{viewmodel.isPurchasable() ? View.GONE : View.VISIBLE}"
             android:text="@string/description2"
             android:textColor="@color/teal_700"
-            app:layout_constraintEnd_toEndOf="@+id/textView"
-            app:layout_constraintStart_toStartOf="@+id/textView"
-            app:layout_constraintTop_toBottomOf="@+id/textView" />
+            app:layout_constraintEnd_toEndOf="@id/textView"
+            app:layout_constraintStart_toStartOf="@id/textView"
+            app:layout_constraintTop_toBottomOf="@id/textView" />
 
         <Button
             android:id="@+id/chargeButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="20dp"
-            android:layout_marginTop="389dp"
             android:text="@string/charge"
-            android:enabled="@{viewmodel.isSmall()}"
-            app:layout_constraintEnd_toEndOf="@+id/textView"
-            app:layout_constraintStart_toStartOf="@+id/textView"
-            app:layout_constraintTop_toBottomOf="@+id/textView" />
+            android:layout_marginTop="20dp"
+            android:backgroundTint="@color/teal_700"
+            app:layout_constraintEnd_toStartOf="@id/textView"
+            app:layout_constraintTop_toBottomOf="@id/textView" />
 
         <Button
             android:id="@+id/buyButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="구매"
-            android:backgroundTint="@color/teal_700"
-            app:layout_constraintStart_toEndOf="@id/textView"
-            app:layout_constraintTop_toTopOf="@id/textView"
-            app:layout_constraintBottom_toBottomOf="@id/textView"
-            />
+            android:enabled="@{viewmodel.isPurchasable()}"
+            android:text="@string/buy"
+            app:layout_constraintStart_toEndOf="@id/chargeButton"
+            app:layout_constraintTop_toTopOf="@id/chargeButton" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
